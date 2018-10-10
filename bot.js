@@ -62,11 +62,11 @@ client.on("message", async message => {
   }
   
   if(command == "complain") {
-      message.channel.send(randomComplaint());
+      message.channel.send(randomGrab(complaints));
   }
 
   if(command == "do") {
-      message.channel.send("no.");
+      message.channel.send(randomGrab(sass));
   }
 
   if(command == "alive") {
@@ -105,17 +105,27 @@ client.on("message", async message => {
   }
 });
 
+const sass = [
+    "no.",
+    "Let me get back to you on that :information_desk_person:",
+    "Here's a suggestion: how about you do it?",
+    "Could you ask for nothing? I'll be able to do nothing."
+];
+
 const complaints = [
     "Why doesn't anyone use introductory sentences?",
     "I'm not a style guide!",
     "Just google it!!",
-    "TOO MUCH PERSONAL INFORMATION—MY EYES ARE BLEEDING"
+    "TOO MUCH PERSONAL INFORMATION—MY EYES ARE BLEEDING",
+    "Why is it so cold in here?",
+    "Whyyy is it so hot in here???",
+    "Did you remember to sign in?",
+    "I rephrased this question 27 times and drew 4 visuals.",
+    "why is there a banana here"
 ];
 
-function randomComplaint() {
-    var randomIndex = Math.floor(Math.random() * complaints.length);
-
-    return complaints[randomIndex];
-}
+function randomGrab(array) {
+    return array[Math.floor(Math.random() * array.length)];
+};
 
 client.login(process.env.TOKEN);
