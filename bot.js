@@ -74,26 +74,25 @@ client.on("message", async message => {
 
       var difference = Math.abs(startDate - currentTime);
 
-      const days = Math.floor(difference / (1000*60*60*24));
+      var out = "I have been alive for: \n";
+
+      out += Math.floor(difference / (1000*60*60*24)) + " days, ";
 
       difference -= days * 100 * 60 * 60 * 24;
 
-      const hours = Math.floor(difference / (1000*60*60));
+      out += Math.floor(difference / (1000*60*60)) + " hours, ";
 
       difference -= hours * 1000 * 60 * 60;
-      
-      const minutes = Math.floor(difference / (1000*60));
 
+      out += Math.floor(difference / (1000*60)) + " minutes, ";
+      
       difference -= minutes * 1000 * 60;
 
-      const seconds = Math.floor(difference / (1000));
+      out += Math.floor(difference / (1000)) + " seconds.\n";
 
-      message.channel.send("I have been alive for: \n" 
-      + days + " days, "
-      + hours + " hours, "
-      + minutes + " minutes, "
-      + seconds + " seconds. \n"
-      + "Please don't reset me!");
+      out += "Please don't reset me!";
+
+      message.channel.send(out);
   }
   if(command == "help") {
       message.channel.send(
