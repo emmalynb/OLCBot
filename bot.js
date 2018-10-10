@@ -95,7 +95,7 @@ client.on("message", async message => {
       + seconds + " seconds. \n"
       + "Please don't reset me!");
   }
-  if(commmand == "help") {
+  if(command == "help") {
       message.channel.send(
           "!ping - Tests to see if the bot is working\n"
           + "!say - Tell the bot to say something\n"
