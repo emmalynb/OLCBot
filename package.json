@@ -1,0 +1,16 @@
+{
+  "name": "OLCBot",
+  "version": "0.0.1",
+  "main": "bot.js",
+  "repository": "https://github.com/bpas247/OLCBot.git",
+  "author": "Brady Pascoe <bpas247@hotmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "dotenv": "^6.1.0"
+  },
+  "scripts": {
+    "start": "node bot.js"
+  }
+}
