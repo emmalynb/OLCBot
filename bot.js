@@ -11,12 +11,17 @@ const Prefix = '!';
 // this is what we're refering to. Your client.
 const client = new Discord.Client();
 
+const startDate;
+
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
   client.user.setActivity(`Serving ${client.guilds.size} servers`);
+
+  // set the date
+  startDate = new Date();
 });
 
 client.on("message", async message => {
@@ -62,6 +67,27 @@ client.on("message", async message => {
 
   if(command == "do") {
       message.channel.send("no.");
+  }
+
+  if(command == "alive") {
+      const currentTime = new Date();
+
+      const difference = Math.abs(startDate - currentTime);
+
+      const days = Math.floor(difference / (1000*60*60*24));
+
+      const hours = Math.floor(difference / (1000*60*60));
+      
+      const minutes = Math.floor(difference / (1000*60));
+
+      const seconds = Math.floor(difference / (1000));
+
+      message.channel.send("I have been alive for: \n" 
+      + days + " days, \n"
+      + hours + " hours, \n"
+      + minutes + " minutes, \n"
+      + seconds + " seconds, \n"
+      + "Please don't reset me!");
   }
 });
 
