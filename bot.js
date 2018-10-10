@@ -18,7 +18,7 @@ client.on("ready", () => {
   console.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`); 
   // Example of changing the bot's playing game to something useful. `client.user` is what the
   // docs refer to as the "ClientUser".
-  client.user.setActivity(`Serving ${client.guilds.size} servers`);
+  client.user.setActivity(`Type !help for more info`);
 
   // set the date
   startDate = new Date();
@@ -94,6 +94,15 @@ client.on("message", async message => {
       + minutes + " minutes, "
       + seconds + " seconds. \n"
       + "Please don't reset me!");
+  }
+  if(commmand == "help") {
+      message.channel.send(
+          "!ping - Tests to see if the bot is working\n"
+          + "!say - Tell the bot to say something\n"
+          + "!do - Tell the bot to do something\n"
+          + "!complain - Generate a random complaint\n"
+          + "!alive - How long have I been alive for?"
+        );
   }
 });
 
