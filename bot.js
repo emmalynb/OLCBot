@@ -72,11 +72,11 @@ client.on("message", async message => {
   if(command == "alive") {
       const currentTime = new Date();
 
-      const difference = Math.abs(startDate - currentTime);
+      var difference = Math.abs(startDate - currentTime);
 
       const days = Math.floor(difference / (1000*60*60*24));
 
-      difference -= difference * 100 * 60 * 60 * 24;
+      difference -= days * 100 * 60 * 60 * 24;
 
       const hours = Math.floor(difference / (1000*60*60));
 
