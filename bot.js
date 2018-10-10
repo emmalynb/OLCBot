@@ -11,7 +11,7 @@ const Prefix = '!';
 // this is what we're refering to. Your client.
 const client = new Discord.Client();
 
-const startDate;
+var startDate;
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
@@ -83,10 +83,10 @@ client.on("message", async message => {
       const seconds = Math.floor(difference / (1000));
 
       message.channel.send("I have been alive for: \n" 
-      + days + " days, \n"
-      + hours + " hours, \n"
-      + minutes + " minutes, \n"
-      + seconds + " seconds, \n"
+      + days + " days, "
+      + hours + " hours, "
+      + minutes + " minutes, "
+      + seconds + " seconds. \n"
       + "Please don't reset me!");
   }
 });
