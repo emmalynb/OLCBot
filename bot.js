@@ -68,6 +68,10 @@ client.on("message", async message => {
   if(command == "do") {
       message.channel.send(randomGrab(sass));
   }
+  if(command == "motivate") {
+      message.channel.send(randomGrab(motivate));
+  }
+  
 
   if(command == "alive") {
       const currentTime = new Date();
@@ -122,6 +126,14 @@ const complaints = [
     "Did you remember to sign in?",
     "I rephrased this question 27 times and drew 4 visuals.",
     "why is there a banana here"
+];
+
+const motivation = [
+    "students who visit the Bock Learning Center have improved grades"
+    "a student has successfully understood the concept you explained"
+    "a student has signed in successfully"
+    "a student has pushed in their chair as they left"
+    "there are no students left in the center at closing time"
 ];
 
 function randomGrab(array) {
